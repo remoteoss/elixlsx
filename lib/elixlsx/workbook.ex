@@ -2,8 +2,6 @@ defmodule Elixlsx.Workbook do
   @moduledoc ~S"""
   Root structure for excel files.
 
-  Must contain at least one Elixlsx.Sheet object.
-
   The datetime property can optionally be set to override
   the "created at" date. It defaults to the current time.
   """
