@@ -8,7 +8,9 @@ defmodule OracleTest do
 
   defp check(bin) do
     {:ok, package} = @oracle.open(bin, source: :binary)
-    {:ok, _sheets} = @oracle.sheets(package)
+    {:ok, sheets} = @oracle.sheets(package)
+
+    dbg(sheets)
 
     :ok
   end
@@ -37,6 +39,16 @@ defmodule OracleTest do
 
   test "date cells" do
     s = Sheet.with_name("1") |> Sheet.set_cell("A4", {{2015, 11, 30}, {21, 20, 38}}, yyyymmdd: true)
+
+    wk = %Workbook{} |> Workbook.append_sheet(s)
+
+    assert {:ok, {_, bin}} = Elixlsx.write_to_memory(wk, "")
+
+    assert check(bin)
+  end
+
+  test "empty date celss" do
+    s = Sheet.with_name("1") |> Sheet.set_cell("A4", "", yyyymmdd: true)
 
     wk = %Workbook{} |> Workbook.append_sheet(s)
 
