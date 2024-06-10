@@ -8,9 +8,7 @@ defmodule OracleTest do
 
   defp check(bin) do
     {:ok, package} = @oracle.open(bin, source: :binary)
-    {:ok, sheets} = @oracle.sheets(package)
-
-    dbg(sheets)
+    {:ok, _sheets} = @oracle.sheets(package)
 
     :ok
   end
