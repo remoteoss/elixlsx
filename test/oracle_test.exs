@@ -12,6 +12,7 @@ defmodule OracleTest do
 
     :ok
   end
+
   test "empty workbook" do
     assert {:ok, {_, bin}} = Elixlsx.write_to_memory(%Workbook{}, "")
     assert check(bin)
