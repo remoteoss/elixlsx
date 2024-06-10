@@ -45,7 +45,7 @@ defmodule OracleTest do
     assert check(bin)
   end
 
-  test "empty date celss" do
+  test "empty date cells" do
     s = Sheet.with_name("1") |> Sheet.set_cell("A4", "", yyyymmdd: true)
 
     wk = %Workbook{} |> Workbook.append_sheet(s)
