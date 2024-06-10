@@ -15,5 +15,7 @@
   "nimble_parsec": {:hex, :nimble_parsec, "1.1.0", "3a6fca1550363552e54c216debb6a9e95bd8d32348938e13de5eda962c0d7f89", [:mix], [], "hexpm", "08eb32d66b706e913ff748f11694b17981c0b04a33ef470e33e11b3d3ac8f54b"},
   "propcheck": {:hex, :propcheck, "1.4.1", "c12908dbe6f572032928548089b34ff9d40672d5d70f1562e3a9e9058d226cc9", [:mix], [{:libgraph, "~> 0.13", [hex: :libgraph, repo: "hexpm", optional: false]}, {:proper, "~> 1.4", [hex: :proper, repo: "hexpm", optional: false]}], "hexpm", "e1b088f574785c3c7e864da16f39082d5599b3aaf89086d3f9be6adb54464b19"},
   "proper": {:hex, :proper, "1.4.0", "89a44b8c39d28bb9b4be8e4d715d534905b325470f2e0ec5e004d12484a79434", [:rebar3], [], "hexpm", "18285842185bd33efbda97d134a5cb5a0884384db36119fee0e3cfa488568cbb"},
+  "saxy": {:hex, :saxy, "1.5.0", "0141127f2d042856f135fb2d94e0beecda7a2306f47546dbc6411fc5b07e28bf", [:mix], [], "hexpm", "ea7bb6328fbd1f2aceffa3ec6090bfb18c85aadf0f8e5030905e84235861cf89"},
   "triq": {:hex, :triq, "1.3.0", "d9ed60f3cd2b6bacbb721bc9873e67e07b02e5b97c63d40db35b12670a7f1bf4", [:rebar3], [], "hexpm", "e01eb99fc53099ded985bb0c629ea0d2b0bfcf5b9a4178e0a93b08dbe51aa8cd"},
+  "xlsx_reader": {:hex, :xlsx_reader, "0.8.5", "38eeee188a0cefcd02de6c3d92dadde86ab6d19c25af8715426fd4371ae578f7", [:mix], [{:decimal, "~> 1.0 or ~> 2.0", [hex: :decimal, repo: "hexpm", optional: true]}, {:saxy, "~> 1.5.0", [hex: :saxy, repo: "hexpm", optional: false]}], "hexpm", "7ab63f243750c2b41fada3683ec22fd7d0415f0da54460bd61bef1296c952395"},
 }
