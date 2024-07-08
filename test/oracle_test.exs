@@ -36,7 +36,8 @@ defmodule OracleTest do
   end
 
   test "date cells" do
-    s = Sheet.with_name("1") |> Sheet.set_cell("A4", {{2015, 11, 30}, {21, 20, 38}}, yyyymmdd: true)
+    s =
+      Sheet.with_name("1") |> Sheet.set_cell("A4", {{2015, 11, 30}, {21, 20, 38}}, yyyymmdd: true)
 
     wk = %Workbook{} |> Workbook.append_sheet(s)
 
@@ -47,6 +48,19 @@ defmodule OracleTest do
 
   test "empty date cells" do
     s = Sheet.with_name("1") |> Sheet.set_cell("A4", "", yyyymmdd: true)
+
+    wk = %Workbook{} |> Workbook.append_sheet(s)
+
+    assert {:ok, {_, bin}} = Elixlsx.write_to_memory(wk, "")
+
+    assert check(bin)
+  end
+
+  test "with date validations" do
+    s =
+      Sheet.with_name("1")
+      |> Sheet.set_cell("A1", {{2024, 10, 10}, {0, 0, 0}}, yyyymmdd: true)
+      |> Sheet.add_data_validations("A1", "A1", date: [greater_than_or_equal: ~D|2000-01-01|])
 
     wk = %Workbook{} |> Workbook.append_sheet(s)
 
