@@ -346,7 +346,7 @@ defmodule Elixlsx.XMLTemplates do
   defp xl_merge_cells(merge_cells) do
     """
     <mergeCells count="#{Enum.count(merge_cells)}">
-      #{Enum.map(merge_cells, fn {fromCell, toCell} -> "<mergeCell ref=\"#{fromCell}:#{toCell}\"/>" end)}
+      #{Enum.map(merge_cells, fn {from_cell, to_cell} -> "<mergeCell ref=\"#{from_cell}:#{to_cell}\"/>" end)}
     </mergeCells>
     """
   end
