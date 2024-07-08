@@ -1,5 +1,8 @@
 defmodule Elixlsx.Util do
   alias Elixlsx.XML
+
+  @type date :: :calendar.date()
+
   @col_alphabet Enum.to_list(?A..?Z)
 
   @doc ~S"""
@@ -194,9 +197,10 @@ defmodule Elixlsx.Util do
   Timestampts that are already in excel format are passed through
   unmodified.
   """
-  @spec to_excel_datetime(datetime_t) :: {:excelts, number}
+  @spec to_excel_datetime(date) :: {:excelts, number}
   def to_excel_datetime({yy, mm, dd}), do: to_excel_datetime({{yy, mm, dd}, {0, 0, 0}})
 
+  @spec to_excel_datetime(datetime_t) :: {:excelts, number}
   def to_excel_datetime({{yy, mm, dd}, {h, m, s}}) do
     in_seconds = :calendar.datetime_to_gregorian_seconds({{yy, mm, dd}, {h, m, s}})
     excel_epoch = :calendar.datetime_to_gregorian_seconds(@excel_epoch)
